@@ -1,0 +1,22 @@
+body {
+	margin: 0;
+	background-image: url('../images/study-material-1.jpg');
+	background-repeat:no-repeat;
+	display: compact;
+	font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-size: cover;
+}
+
+.container {
+	padding: 100px;
+}
+
+#description {
+	display: inline;
+	font-weight: bold;
+	font-style: sans-serif ;
+	line-height: 50px;
+	text-shadow: 1px 1px 0 #FFFFBB,-1px -1px 0 #FFFFFF; 
+	font-size: 30px;
+	color: #000000;
+}
