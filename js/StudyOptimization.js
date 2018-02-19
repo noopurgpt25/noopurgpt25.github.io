@@ -135,7 +135,7 @@ function checkTaskValidation() {
   document.getElementById("barChart").style.display = "block";
   document.getElementById("doughnutChart").style.display = "block";
   document.getElementById("pieChart").style.display = "block";
-  document.getElementById("addtaskModal").modal.hide = true;
+  // document.getElementById("addtaskModal").modal.hide = true;
   document.getElementById('add-task-form').reset();
   // return true;
 }
