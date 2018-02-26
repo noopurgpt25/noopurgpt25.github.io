@@ -10,7 +10,7 @@ function validateLogin() {
 
 	if (user == "nell@northwestern.edu")
 	{
-		window.location.href="TaskPageUSer1.html";
+		window.location.href="TaskPageUser1.html";
 		return true;
 	}
 
