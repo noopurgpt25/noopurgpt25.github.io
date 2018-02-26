@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1, maximum-scale=1, user-scalable=no">
+   <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Bootstrap Date-Picker Plugin -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+		<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Bootstrap Date-Picker Plugin -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+
+</head>
+<body>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtaskModal">
+	  Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="addtaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Add a Task</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+			  <div class="form-group row">
+			    <label for="input-title" class="col-sm-2 col-form-label">Title</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="input-title" placeholder="Title">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="input-course" class="col-sm-2 col-form-label">Course</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="input-course" placeholder="Course">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="input-type" class="col-sm-2 col-form-label">Type</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="input-type" placeholder="Type">
+			    </div>
+			  </div>
+			   <fieldset class="form-group">
+				    <div class="row">
+				      <label class="col-form-label col-sm-2 pt-0">Priority</label>
+				      <div class="col-sm-10">
+				        <div class="form-check">
+				          <input class="form-check-input" type="radio" name="gridRadios" id="normal-radio-btn" value="0" checked>
+				          <label class="form-check-label" for="normal-radio-btn">
+				            Normal 
+				          </label>
+				        </div>
+				        <div class="form-check">
+				          <input class="form-check-input" type="radio" name="gridRadios" id="high-radio-btn" value="1">
+				          <label class="form-check-label" for="high-radio-btn">
+				            High
+				          </label>
+				        </div>
+				      </div>
+				    </div>
+				</fieldset>
+				<div class="form-group row">
+			    <!-- Date input -->
+			        <label class="col-sm-2 col-form-label" for="date">Deadline</label>
+			        <div class="col-sm-10">
+			        	<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+			        </div>
+			     </div>             
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Add Task</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script>
+	    $(document).ready(function(){
+	      var date_input=$('input[name="date"]'); //our date input has the name "date"
+	      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+	      var options={
+	        format: 'mm/dd/yyyy',
+	        container: container,
+	        todayHighlight: true,
+	        autoclose: true,
+	      };
+	      date_input.datepicker(options);
+	    })
+	</script>
+</body>

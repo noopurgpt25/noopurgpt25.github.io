@@ -1,0 +1,18 @@
+body {
+	margin: 0;
+	display: compact;
+	font: 13px/18px "Helvetica Neue", Helvetica,Georgia, serif;
+	background-size: cover;
+}
+
+.container {
+	padding: 100px;
+}
+
+#loginlink {
+	color: blue;
+}
+
+#signup-form {
+	padding-top: 0px;
+}

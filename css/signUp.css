@@ -1,0 +1,56 @@
+body {
+	margin: 0;
+	display: compact;
+	font: 13px/18px "Helvetica Neue", Helvetica,Georgia, serif;
+	background-size: cover;
+}
+
+.container {
+	padding: 100px;
+}
+
+#loginlink {
+	color: blue;
+}
+
+#signup-form {
+	padding-top: 0px;
+}
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+.panel-footer {
+	padding: 1px 15px;
+	color: #A0A0A0;
+}
+
+.profile-img {
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+#alert-box {
+	display: none;
+}
+
+.palel-primary
+{
+	border-color: black;
+}
+.panel-primary>.panel-heading
+{
+	background:black;
+	
+}
+.panel-primary>.panel-body
+{
+	background-color: #EDEDED;
+}
+
