@@ -3,11 +3,15 @@
     -webkit-border-radius:10px;
     -moz-border-radius:10px;
     border-radius:10px;
-    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+ 
 }	
 
 .profile-info
 {
 	margin-left: 20%;
 	margin-right: 20%;
+}
+
+.profile-user-box {
+	padding-left: 20%;
 }

@@ -6,6 +6,8 @@
   
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/task.css">
+
   <!-- Bootstrap Date-Picker Plugin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <!-- jQuery library -->
@@ -17,9 +19,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
   <script src="js/Chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
-
-  <script type="text/javascript" src="js/profile.js"></script>
-  <script type="text/javascript" src="js/SignUp.js"></script>
+  <script type="text/javascript" src="js/StudyOptimization.js"></script>
 </head>
 <body>
 
@@ -33,7 +33,7 @@
           <li class="active"><a href="#">Task</a></li>
           <li><a href="#">Class</a></li>
           <li><a href="#">Notes</a></li>
-          <li><a href="#">Calendar</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -42,106 +42,125 @@
               <ul class="dropdown-menu">
                 <li><a href="UserProfile2.html">Profile info</a></li>
                 <li><a href="index.html"><span class="glyphicon 
-                    glyphicon-log-out"></span>Logout</a></li>
-              </ul>
-          </li>
-        </ul>
+                  glyphicon-log-out"></span>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid" id="tab-task" style="background: black; margin-top: -20px;">
+        <div class="col-md-4 text-center"> </div>
+        <div class="col-md-4 text-center"> 
+         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addtaskModal" >
+          Add Task
+        </button>
+        <button type="button " class="btn btn-success btn-lg" disabled >
+          Start Study!
+        </button>
+      </div>
+      <div class="col-md-4 text-center"> 
       </div>
     </div>
-  </nav>
- <div class="container-fluid" id="tab-task">
-    <div class="col-md-4 text-center"> </div>
-    <div class="col-md-4 text-center"> 
-     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addtaskModal" >
-      Add Task
-    </button>
-    <button type="button " class="btn btn-success btn-lg" disabled >
-      Start Study!
-    </button>
-  </div>
-  <div class="col-md-4 text-center"> 
-  </div>
-</div>
 
-<div class="col-xs-6 col-md-4">
-  <h2>Upcoming Tasks
-  </h2>
-</div>
-<div class="col-xs-6 col-md-4"><h2>Late Tasks</h2>
-</div>
-<div class="col-xs-6 col-md-4"><h2>Completed Tasks</h2>
-</div>
-  <div class="p-3 mb-2 bg-light text-danger text-center"><h4>Please add your first task...</h4>
-</div>
+    <div class="col-xs-6 col-md-4">
+      <h2>Upcoming Tasks </h2>    <div class="bg-light text-danger" style="padding: 50px;"><a data-toggle="modal" data-target="#addtaskModal">Add your first task!</a>
+    </div>
+    </div>
+    <div class="col-xs-6 col-md-4"><h2>Late Tasks</h2>    <div class="bg-light text-danger" style="padding: 50px;"><a data-toggle="modal" data-target="#addtaskModal">Add your first task!</a>
+    </div>
+    </div>
+    <div class="col-xs-6 col-md-4"><h2>Completed Tasks</h2>    
+      <div class="bg-light text-danger" style="padding: 50px;"><a data-toggle="modal" data-target="#addtaskModal">Add your first task!</a>
+    </div>
+
+    </div>
 
 
 
 
-
-       <!-- Modal -->
-       <div class="modal fade" id="addtaskModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Add a Task</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="add-task-form">
-                <div class="form-group row">
-                  <label for="input-title" class="col-sm-2 col-form-label">Title</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-title" placeholder="Title">
-                  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addtaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add a Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="add-task-form">
+              <div class="form-group row">
+                <label for="input-title" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input-title" placeholder="Task Description(e.g Computer Prototype)">
                 </div>
-                <div class="form-group row">
-                  <label for="input-course" class="col-sm-2 col-form-label">Course</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-course" placeholder="Course">
-                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="input-course" class="col-sm-2 col-form-label">Course</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input-course" placeholder="AI/HCI/Algorithm.....">
                 </div>
-                <div class="form-group row">
-                  <label for="input-type" class="col-sm-2 col-form-label">Type</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-type" placeholder="Type">
-                  </div>
-                </div>
-                <fieldset class="form-group">
-                  <div class="row">
-                    <label class="col-form-label col-sm-2 pt-0">Priority</label>
-                    <div class="col-sm-10">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="normal-radio-btn" checked>
-                        <label class="form-check-label" for="normal-radio-btn">
-                          Normal 
-                        </label>
+              </div>
+              <div class="form-group row">
+                <label for="input-type" class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-10">
+                <select class="selectpicker">
+                          <option>Reading</option>
+                          <option>HW</option>
+                          <option>Lab</option>
+
+                        </select>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="high-radio-btn">
-                        <label class="form-check-label" for="high-radio-btn">
-                          High
-                        </label>
-                      </div>
+              </div>
+              <fieldset class="form-group">
+                <div class="row">
+                  <label class="col-form-label col-sm-2 pt-0">Priority</label>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="normal-radio-btn" checked>
+                      <label class="form-check-label" for="normal-radio-btn">
+                        Normal 
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="high-radio-btn">
+                      <label class="form-check-label" for="high-radio-btn">
+                        High
+                      </label>
                     </div>
                   </div>
-                </fieldset>
-                <div class="form-group row">
-                  <!-- Date input -->
-                  <label class="col-sm-2 col-form-label" for="date">Deadline</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-                  </div>
-                </div>             
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="{location.href='TaskPage2.html'}">Add Task</button>
-            </div>
+                </div>
+              </fieldset>
+              <div class="form-group row">
+                <!-- Date input -->
+                <label class="col-sm-2 col-form-label" for="date">Deadline</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                </div>
+              </div>             
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="checkTaskValidation(2)">Add Task</button>
           </div>
         </div>
       </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+          format: 'mm/dd/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+        })
+      })
+    </script> 
+  </body>
+  </html>
 
-  

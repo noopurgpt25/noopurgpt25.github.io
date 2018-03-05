@@ -1,61 +1,154 @@
    //global variables
+   var ctxB1 = document.getElementById("barChart1").getContext('2d');
+   var myBarChart1 = new Chart(ctxB1, {
+    type: 'bar',
+    data: {
+      labels: ["HCI-HW-CP", "AI-Lab3","AI-Reading-CH3"],
+      datasets: [{
+        label: 'Progress',
+        data: [40,20,20,0,100],
+        backgroundColor: [
+        'rgba(255, 255, 0, 0.6)',
+        'rgba(54, 162, 235, 0.2)',
 
-   var ctxP = document.getElementById("pieChart").getContext('2d');
-   var myPieChart = new Chart(ctxP, {
-    type: 'pie',
-    data: {
-      labels: ["HCI-HW", "AI-HW", "AI-READING"],
-      datasets: [
-      {
-        data: [20,20,20],
-        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
-        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
-      }
-      ]
+        ],
+        borderColor: [
+        'rgba(255,215,0,1)',
+        'rgba(54, 162, 235, 1)',
+
+        ],
+        borderWidth: 1
+      }]
     },
-    options: {
-      responsive: true
-    }    
-  });
-   var ctxP2 = document.getElementById("pieChart2").getContext('2d');
-   var myPieChart = new Chart(ctxP2, {
-    type: 'pie',
-    data: {
-      labels: ["HcI-HW-Paper Prototype", "HCI-HW-Reading"],
-      datasets: [
-      {
-        data: [80,60 ],
-        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
-        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
+    optionss: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
       }
-      ]
-    },
-    options: {
-      responsive: true
-    }    
+    }
   });
 
+   var ctxB4 = document.getElementById("barChart4").getContext('2d');
+   var myBarChart4 = new Chart(ctxB4, {
+    type: 'bar',
+    data: {
+      labels: ["HCI-HW-PP", "HCI-Reading-Graph"],
+      datasets: [{
+        label: 'Progress',
+        data: [80,60,0,100],
+        backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
 
-  $(document).ready(function(){
+        ],
+        borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+
+        ],
+        borderWidth: 1
+      }]
+    },
+    optionss: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
+
+   //global variables
+   var ctxB2 = document.getElementById("barChart2").getContext('2d');
+   var myBarChart2 = new Chart(ctxB2, {
+    type: 'bar',
+    data: {
+      labels: ["HCI-HW-CP", "AI-Lab3","AI-Reading-CH3"],
+      datasets: [{
+        label: 'Progress',
+        data: [40,40,20,0,100],
+        backgroundColor: [
+        'rgba(255, 255, 0, 0.6)',
+        'rgba(54, 162, 235, 0.2)',
+
+        ],
+        borderColor: [
+        'rgba(255,215,0,1)',
+        'rgba(54, 162, 235, 1)',
+
+        ],
+        borderWidth: 1
+      }]
+    },
+    optionss: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
+   var ctxB3 = document.getElementById("barChart3").getContext('2d');
+   var myBarChart3 = new Chart(ctxB3, {
+    type: 'bar',
+    data: {
+      labels: ["AI-Lab3","AI-Reading-CH3"],
+      datasets: [{
+        label: 'Progress',
+        data: [40,20,0,100],
+        backgroundColor: [
+
+        'rgba(54, 162, 235, 0.2)',
+
+        ],
+        borderColor: [
+
+        'rgba(54, 162, 235, 1)',
+
+        ],
+        borderWidth: 1
+      }]
+    },
+    optionss: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
+
+
+   $(document).ready(function(){
         var date_input=$('input[name="date"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        var options={
+        date_input.datepicker({
           format: 'mm/dd/yyyy',
           container: container,
           todayHighlight: true,
           autoclose: true,
-        };
-        date_input.datepicker(options);
+        })
       })
+
+
 
 //check validation of add task form
 var tasks = [];
 var progress = 0
-function checkTaskValidation() {
+function checkTaskValidation(my_addr) {
   var title = document.getElementById("input-title").value;
   var course = document.getElementById("input-course").value;
-  var type = document.getElementById("input-type").value;
-
   var deadline = document.getElementById("date").value;
 
   if (title == ""||title == null)
@@ -70,36 +163,27 @@ function checkTaskValidation() {
     return false;
   }
 
-  else if  (type==""||type==null)
-    {
-      alert("Please fill the type");
-      return false;
-    } 
+
   else if (deadline==""||deadline==null)
   {
     alert("Please fill a valid deadline");
     return false;
   }
-
-  //check the priority
-  var task = [course, type, title, "0%", deadline]
-  if (document.getElementById("normal-radio-btn").checked == true)
+  else if(my_addr==1)
   {
-    tasks.push(task);
+    window.location.href="TaskPage1.html"
   }
-  else 
+  else if(my_addr==2)
   {
-    tasks.unshift(task);
+    window.location.href="TaskPage2.html"
   }
-
-
-  document.getElementById("complete-task-tb").style.display = "block";
-  document.getElementById("upcoming-task-tb").style.display = "block";
-  document.getElementById("late-task-tb").style.display = "block";
-  document.getElementById("barChart").style.display = "block";
-  document.getElementById("doughnutChart").style.display = "block";
-  document.getElementById("pieChart").style.display = "block";
-  $("#addtaskModal").modal("hide");
-  document.getElementById('add-task-form').reset();
+  else if(my_addr==3)
+  {
+    window.location.href="TaskPage1-2.html"
+  }
+  else if(my_addr==4)
+  {
+    window.location.href="TaskPage2-2.html"
+  }
   // return true;
 }

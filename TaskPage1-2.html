@@ -38,10 +38,10 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user-link-name">Hi Josh,
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user-link-name">Hi Nell,
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="UserProfile2.html">Profile info</a></li>
+                <li><a href="UserProfile1.html">Profile info</a></li>
                 <li><a href="index.html"><span class="glyphicon 
                   glyphicon-log-out"></span>Logout</a></li>
                 </ul>
@@ -69,7 +69,9 @@
       <div class="row">
         <div class="col-xs-6 col-md-4">
           <h2>Upcoming Tasks
+
           </h2>
+
           <table class="table table-hover" id="upcoming-task-tb"">
             <tr>
               <thead>
@@ -81,13 +83,7 @@
                   <th>Deadline</th>
                 </tr>
               </thead>
-              <tr class="warning">
-                <td>HCI</td>
-                <td>HW</td>
-                <td>Computer Prototype</td>
-                <td>40%</td>
-                <td>2/18/2018</td>
-              </tr>
+
               <tr>
                 <td>AI</td>
                 <td>HW</td>
@@ -103,7 +99,9 @@
                 <td>2/25/2017</td>
               </tr>
               <tr>
-               <canvas id="barChart1"></canvas>
+                <canvas id="barChart1" style="display: none;"></canvas>
+                <canvas id="barChart2" style="display: none;"></canvas>
+                <canvas id="barChart3"></canvas>
 
              </tr>
            </table></div>
@@ -134,10 +132,8 @@
                   <td>2 days</td>
                 </tr>
                 <tr>
-
-
                  <canvas id="barChart4"></canvas> 
-       
+               </tr>
              </table>
            </div>
 
@@ -153,6 +149,14 @@
 
                   </tr>
                 </thead>
+                <tr>
+                  <td>HCI</td>
+                  <td>HW</td>
+                  <td>Computer Prototype</td>
+                  <td>Grading</td>
+
+
+                </tr>
 
                 <tr>
                   <td>AI</td>
@@ -231,7 +235,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="checkTaskValidation(2)">Add Task</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="checkTaskValidation(3)">Add Task</button>
                 </div>
               </div>
             </div>
@@ -298,7 +302,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage2.html'}">Start!</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage1.html'}">Start!</button>
                 </div>
               </div>
             </div>

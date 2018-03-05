@@ -13,12 +13,18 @@ body {
 	color: blue;
 }
 
+#login-box{
+	border-color:#337ab7;
+	background: #EDEDED;
+}
 #signup-form {
 	padding-top: 0px;
 }
 
 .panel-heading {
     padding: 5px 15px;
+    background-color: black !important;
+    color: white !important;
 }
 
 .panel-footer {

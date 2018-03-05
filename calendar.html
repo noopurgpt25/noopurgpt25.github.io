@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard of Study optimization</title>
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Bootstrap Date-Picker Plugin -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <link rel="stylesheet" type="text/css" href="css/calendar.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+  <!-- Bootstrap Date-Picker Plugin -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="js/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+
+</head>
+<body>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Study Optimizer</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="TaskPage1.html">Task</a></li>
+          <li><a href="#">Class</a></li>
+          <li><a href="#">Notes</a></li>
+          <li class="active"><a href="#">Calendar</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user-link-name">Hi Nell,
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="UserProfile1.html">Profile info</a></li>
+                <li><a href="index.html"><span class="glyphicon 
+                  glyphicon-log-out"></span>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- calendar goes here-->
+      <div class="container-fluid" id="add-event">
+      
+          <button class="btn btn-primary" id="add-event-btn" data-toggle="modal" data-target="#addEventModal">Add New Event</button>
+        
+      </div>
+
+
+
+      <!-- Add Event Modal -->
+      <!-- Modal -->
+          <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add an Event</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="add-task-form">
+                    <div class="form-group row">
+                      <label for="input-title" class="col-sm-2 col-form-label">Event Name</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input-evnt-name" placeholder="Title">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="input-course" class="col-sm-2 col-form-label">Date</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input-evnt-date" placeholder="mm/dd/yyyy">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="input-type" class="col-sm-2 col-form-label">Time</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input-type" placeholder="hh:mm">
+                      </div>
+                    </div>            
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" data-dismiss="modal" onclick="{location.href='calendarAdd.html'}">Add Event</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- modal ends-->
+
+      <div class="container-fluid" id="calendar">
+        <h2>Calendar</h2>
+        <div class="row" id="calendar-bar">
+          <div class="btn-group month-week-btn col-sm-4" data-toggle="buttons">
+              <button class="btn btn-success btn-sm active" type="button" onclick="clickMonth()" id="month-option" name="options">Month
+              <button type="button" class="btn btn-success btn-sm" name="options" onclick="clickWeek()" id="week-option" >Week
+          </div>
+            <div class="month">      
+              <ul>
+                <li class="prev">&#10094;</li>
+                <li class="next">&#10095;</li>
+                <li>
+                  March<br>
+                  <span style="font-size:18px">2018</span>
+                </li>
+              </ul>
+            </div>
+            <ul class="weekdays" id="weekdays-id">
+              <li>Monday</li>
+              <li>Tuesday</li>
+              <li>Wednesday</li>
+              <li>Thursday</li>
+              <li>Friday</li>
+              <li>Saturday</li>
+              <li>Sunday</li>
+            </ul>
+
+            <ul class="days" id="days-id">  
+              <li>1</li>
+              <li>2</li>
+              <li>3 <div class="exam-cal">AI Homework 4</div>
+                    <div class="class-cal">EECS330 - HCI Lecture</div>
+              </li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li><span class="active">10</span></li>
+              <li>11</li>
+              <li>12</li>
+              <li>13</li>
+              <li>14</li>
+              <li>15</li>
+              <li>16</li>
+              <li>17</li>
+              <li>18</li>
+              <li>19</li>
+              <li>20</li>
+              <li>21</li>
+              <li>22</li>
+              <li>23</li>
+              <li>24</li>
+              <li>25</li>
+              <li>26</li>
+              <li>27</li>
+              <li>28</li>
+              <li>29</li>
+              <li>30</li>
+              <li>31</li>
+            </ul>
+
+
+            <!-- weekly calendar-->
+            <div class="weekly-cal-wrapper" id="weekly-cal-wrapper-id" style="display: none;">
+              <table id="week-cal">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <span class="day">1</span><br>
+                      <span class="long">Monday</span>
+                    </th>
+                    <th>
+                      <span class="day">2</span><br>
+                      <span class="long">Tuesday</span>
+                     
+                    </th>
+                    <th>
+                      <span class="day">3</span><br>
+                      <span class="long">Wednesday</span>
+                      
+                    </th>
+                    <th>
+                      <span class="day">4</span><br>
+                      <span class="long">Thursday</span>
+                      
+                    </th>
+                    <th>
+                      <span class="day active">5</span><br>
+                      <span class="long">Friday</span>
+                   
+                    </th>
+                    <th>
+                      <span class="day">6</span><br>
+                      <span class="long">Saturday</span>
+                    
+                    </th>
+                    <th>
+                      <span class="day">7</span><br>
+                      <span class="long">Sunday</span>
+                     
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>1:00</span></td>
+                    <td class="event-cal">Guest Lecture</td>
+                    <td></td>
+                    <td class="class-cal">EECS330 - HCI Lecture</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="exam-cal">AI Homework 4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>2:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  
+                  <tr>
+                    <td class="hour" rowspan="4"><span>3:00</span></td>
+                    <td class="class-cal">EECS348 - AI</td>
+                    <td></td>
+                    <td></td>
+                    <td class="class-cal">EECS348 - AI</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>4:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>5:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>6:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>7:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="4"><span>8:00</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+      </div>
+
+</body>
+<script type="text/javascript" src="js/calendar.js"></script>
+</html>

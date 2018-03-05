@@ -6,6 +6,7 @@
   
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/task.css">
   <!-- Bootstrap Date-Picker Plugin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <!-- jQuery library -->
@@ -32,7 +33,7 @@
           <li class="active"><a href="#">Task</a></li>
           <li><a href="#">Class</a></li>
           <li><a href="#">Notes</a></li>
-          <li><a href="#">Calendar</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -49,7 +50,7 @@
         </div>
       </nav>
       
-      <div class="container-fluid" id="tab-task">
+      <div class="container-fluid" id="tab-task" style="background: black; margin-top: -20px;">
         <div class="col-md-4 text-center"> </div>
         <div class="col-md-4 text-center"> 
          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addtaskModal" >
@@ -67,9 +68,7 @@
       <div class="row">
         <div class="col-xs-6 col-md-4">
           <h2>Upcoming Tasks
-
           </h2>
-
           <table class="table table-hover" id="upcoming-task-tb"">
             <tr>
               <thead>
@@ -81,11 +80,11 @@
                   <th>Deadline</th>
                 </tr>
               </thead>
-              <tr>
+              <tr class="warning">
                 <td>HCI</td>
                 <td>HW</td>
                 <td>Computer Prototype</td>
-                <td>20%</td>
+                <td>40%</td>
                 <td>2/18/2018</td>
               </tr>
               <tr>
@@ -103,7 +102,7 @@
                 <td>2/25/2017</td>
               </tr>
               <tr>
-               <canvas id="pieChart""></canvas>
+               <canvas id="barChart1"></canvas>
 
              </tr>
            </table></div>
@@ -119,14 +118,14 @@
                     <th>Late</th>
                   </tr>
                 </thead>
-                <tr>
+                <tr class="danger">
                   <td>HCI</td>
                   <td>HW</td>
                   <td>Paper Prototype</td>
                   <td>80%</td>
                   <td>50 minutes</td>
                 </tr>
-                <tr>
+                <tr class="danger">
                   <td>HCI</td>
                   <td>HW</td>
                   <td>Reading</td>
@@ -134,8 +133,9 @@
                   <td>2 days</td>
                 </tr>
                 <tr>
-                 <canvas id="pieChart2" ></canvas> 
-               </tr>
+
+                 <canvas id="barChart4"></canvas> 
+       
              </table>
            </div>
 
@@ -151,19 +151,11 @@
 
                   </tr>
                 </thead>
-                <tr>
-                  <td>HCI</td>
-                  <td>HW</td>
-                  <td>Computer Prototype</td>
-                  <td>80</td>
-
-
-                </tr>
 
                 <tr>
                   <td>AI</td>
                   <td>HW</td>
-                  <td>Lab3</td>
+                  <td>Lab2</td>
                   <td>95</td>
 
                 </tr>
@@ -187,19 +179,24 @@
                     <div class="form-group row">
                       <label for="input-title" class="col-sm-2 col-form-label">Title</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input-title" placeholder="Title">
+                        <input type="text" class="form-control" id="input-title" placeholder="Task Description(e.g Computer Prototype)">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="input-course" class="col-sm-2 col-form-label">Course</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input-course" placeholder="Course">
+                        <input type="text" class="form-control" id="input-course" placeholder="AI/HCI/Algorithm.....">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="input-type" class="col-sm-2 col-form-label">Type</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input-type" placeholder="Type">
+                        <select class="selectpicker">
+                          <option>Reading</option>
+                          <option>HW</option>
+                          <option>Lab</option>
+
+                        </select>
                       </div>
                     </div>
                     <fieldset class="form-group">
@@ -225,14 +222,14 @@
                       <!-- Date input -->
                       <label class="col-sm-2 col-form-label" for="date">Deadline</label>
                       <div class="col-sm-10">
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
                       </div>
                     </div>             
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" data-dismiss="modal">Add Task</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="checkTaskValidation(1)">Add Task</button>
                 </div>
               </div>
             </div>
@@ -264,7 +261,6 @@
                         <select class="selectpicker">
                           <option>HW</option>
                           <option>Reading</option>
-
                         </select>
                       </div>
                     </div>
@@ -300,12 +296,24 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="start-modal-btn"  onclick="{location.href='Studypage1.html'}">Start!</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage1.html'}">Start!</button>
                 </div>
               </div>
             </div>
           </div>
-          <script type=text/javascript src="js/StudyOptimization.js"></script>
+          <script type="text/javascript" src="js/StudyOptimization.js"></script>
+           <script>
+      $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+          format: 'mm/dd/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+        })
+      })
+    </script>
         </body>
 
         </html>
