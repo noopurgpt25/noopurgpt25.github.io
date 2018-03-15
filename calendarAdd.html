@@ -33,7 +33,6 @@
         <ul class="nav navbar-nav">
           <li><a href="TaskPage1.html">Task</a></li>
           <li><a href="#">Class</a></li>
-          <li><a href="#">Notes</a></li>
           <li class="active"><a href="#">Calendar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -64,7 +63,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Add an Event</h5>
+                  <label class="modal-title">Add an Event</label>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -101,7 +100,7 @@
         <!-- modal ends-->
 
       <div class="container-fluid" id="calendar">
-        <h2>Calendar</h2>
+        <h2 style="margin-left: 15px;">Calendar</h2>
         <div class="row" id="calendar-bar">
           <div class="btn-group month-week-btn col-sm-4" data-toggle="buttons">
               <button class="btn btn-success btn-sm active" type="button" onclick="clickMonth()" id="month-option" name="options">Month
@@ -130,10 +129,10 @@
             <ul class="days" id="days-id">  
               <li>1</li>
               <li>2</li>
-              <li>3 <div class="exam-cal">AI Homework 4</div>
-                    <div class="class-cal">EECS330 - HCI Lecture</div>
+              <li>3 <div><button class="exam-cal" style="width: 100%">AI Homework 4</button>
+                    <button class="class-cal" style="width: 100%" data-toggle="modal" data-target="#eventDetailModal">EECS330<br>HCI Reading Quiz</button></div>
               </li>
-              <li>4 <div class="exam-cal">EVENT ADDED!!</div>
+              <li>4 <div><button class="event-cal" style="width: 100%">Norris Exam Relief 3!!</button></div>
               </li>
               <li>5</li>
               <li>6</li>
@@ -212,7 +211,7 @@
                     <td class="hour" rowspan="4"><span>1:00</span></td>
                     <td class="event-cal">Guest Lecture</td>
                     <td></td>
-                    <td class="class-cal">EECS330 - HCI Lecture</td>
+                    <td class="class-cal" data-toggle="modal" data-target="#eventDetailModal">EECS330 - HCI Reading Quiz</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -332,7 +331,7 @@
                   </tr>
                   <tr>
                     <td></td>
-                    <td class="exam-cal">EVENT ADDED!!</td>
+                    <td class="event-cal">Norris Exam Relief!!</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -511,6 +510,60 @@
 
         </div>
       </div>
+
+      <!-- event details modal -->
+      <!-- Modal -->
+      <div class="modal fade" id="eventDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <label class="modal-title">3rd March 2018</label>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="add-task-form">
+                <div class="form-group row">
+                  <label for="input-title" class="col-sm-2 col-form-label">Course</label>
+                  <div class="col-sm-10">
+                    EECS 330 - Human Computer Interaction
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="input-course" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                    Reading Quiz 3 - Design Principles
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="input-type" class="col-sm-2 col-form-label">Due date</label>
+                  <div class="col-sm-10">
+                    03/14/2018
+                  </div>
+                </div> 
+                <div class="form-group row">
+                  <label for="input-type" class="col-sm-2 col-form-label">Progress</label>
+                  <div class="col-sm-10">
+                    40%
+                  </div>
+                </div>  
+                <div class="form-group row">
+                  <label for="input-type" class="col-sm-2 col-form-label">Comments</label>
+                  <div class="col-sm-10">
+                    This reading involved discussions about the 4 principles - Consistency,
+                    Repetition, Alignment and Proximity.
+                  </div>
+                </div>         
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- modal ends-->
 
 </body>
 <script type="text/javascript" src="js/calendar.js"></script>
