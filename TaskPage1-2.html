@@ -145,16 +145,15 @@
                     <th>Type</th>
                     <th>Description</th>
                     <th>Score</th>
-
+                    <th>Out of</th>
                   </tr>
                 </thead>
                 <tr>
-                  <td>HCI</td>
+                  <td><a href="#taskDetailModal" data-toggle="modal">HCI</a></td>
                   <td>HW</td>
                   <td>Computer Prototype</td>
                   <td>Grading</td>
-
-
+                  <td>100</td>
                 </tr>
 
                 <tr>
@@ -162,7 +161,7 @@
                   <td>HW</td>
                   <td>Lab2</td>
                   <td>95</td>
-
+                  <td>100</td>
                 </tr>
 
               </table></div>
@@ -174,7 +173,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Add a Task</h5>
+                  <label class="modal-title">Add a Task</label>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -230,13 +229,7 @@
                         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <!-- Comments input -->
-                      <label class="col-sm-2 col-form-label" for="comments">Comments</label>
-                      <div class="col-sm-10">
-                        <textrarea class="form-control" id="comments" name="comments" placeholder="description..."></textrarea>
-                      </div>
-                    </div>              
+                                 
                   </form>
                 </div>
                 <div class="modal-footer">
@@ -247,11 +240,63 @@
             </div>
           </div>
 
+          <!-- Modal for each task progres-->
+          <!-- Modal -->
+          <div class="modal fade" id="taskDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <label class="modal-title">Progress Report</label>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="add-task-form">
+                    <div class="form-group row">
+                      <label for="input-title" class="col-sm-5 col-form-label">TITLE </label>
+                      <div class="col-sm-10">
+                        HCI - HW - Computer Prototype
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="input-course" class="col-sm-5 col-form-label">UPDATE HISTORY</label>
+                    </div>
+                     <div class="form-group row progress-div">
+                      <b>Progress - 100%<br>
+                      Date: 3/16/2018<br></b>
+                      Copleted all components, usability testing, resolutions and submitted.<br><hr>
+                    </div>
+                    <div class="form-group row progress-div">
+                      <b>Progress - 40%<br>
+                      Date: 2/28/2018<br></b>
+                      Completed usability testing on component 1 - user profiles.<br><hr>
+                    </div>
+                    <div class="form-group row progress-div">
+                      <b>Progress - 30%<br>
+                      Date: 2/18/2018<br></b>
+                      Completed impementing 1 component - user profiles<br><hr>
+                    </div>
+                    <div class="form-group row progress-div">
+                      <b>Progress - 10%<br>
+                      Date: 2/10/2018<br></b>
+                      Divides tasks and discussed the different components to be used<br><hr>
+                    </div>       
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal ends here-->
+
           <div class="modal fade" id="startstudy" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Add a Task</h5>
+                  <label class="modal-title">Start Study</label>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
