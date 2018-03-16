@@ -32,15 +32,14 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="TaskPage1.html">Task</a></li>
-          <li><a href="#">Class</a></li>
           <li class="active"><a href="#">Calendar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user-link-name">Hi Nell,
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user-link-name">Hi Josh,
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="UserProfile1.html">Profile info</a></li>
+                <li><a href="UserProfile2.html">Profile info</a></li>
                 <li><a href="index.html"><span class="glyphicon 
                   glyphicon-log-out"></span>Logout</a></li>
                 </ul>
@@ -52,9 +51,7 @@
 
       <!-- calendar goes here-->
       <div class="container-fluid" id="add-event">
-      
           <button class="btn btn-primary" id="add-event-btn" data-toggle="modal" data-target="#addEventModal">Add New Event</button>
-        
       </div>
 
 
@@ -73,7 +70,7 @@
                 <div class="modal-body">
                   <form id="add-task-form">
                     <div class="form-group row">
-                      <label for="input-title" class="col-sm-2 col-form-label">Event</label>
+                      <label for="input-title" class="col-sm-2 col-form-label">Event Name</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="input-evnt-name" placeholder="Title">
                       </div>
@@ -81,20 +78,20 @@
                     <div class="form-group row">
                       <label for="input-course" class="col-sm-2 col-form-label">Date</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input-evnt-date" placeholder="mm/dd/yyyy">
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="input-type" class="col-sm-2 col-form-label">Time</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input-type" placeholder="hh:mm">
+                        <input type="time" class="form-control" id="input-type" placeholder="hh:mm">
                       </div>
                     </div>            
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" data-dismiss="modal" onclick="{location.href='calendarAdd.html'}">Add Event</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn" data-dismiss="modal" onclick="{location.href='calendarAdd2.html'}">Add Event</button>
                 </div>
               </div>
             </div>
@@ -134,19 +131,20 @@
               <li>3 <div><button class="exam-cal" style="width: 100%">AI Homework 4</button>
                     <button class="class-cal" style="width: 100%" data-toggle="modal" data-target="#eventDetailModal">EECS330<br>HCI Reading Quiz</button></div>
               </li>
-              <li>4</li>
+              <li>4 <div><button class="event-cal" style="width: 100%">Norris Exam Relief 3!!</button></div>
+              </li>
               <li>5</li>
               <li>6</li>
               <li>7</li>
               <li>8</li>
               <li>9</li>
-              <li><span class="active">10</span></li>
+              <li>10</li>
               <li>11</li>
               <li>12</li>
               <li>13</li>
               <li>14</li>
               <li>15</li>
-              <li>16</li>
+              <li><span class="active">16</span></li>
               <li>17</li>
               <li>18</li>
               <li>19</li>
@@ -332,7 +330,7 @@
                   </tr>
                   <tr>
                     <td></td>
-                    <td></td>
+                    <td class="event-cal">Norris Exam Relief!!</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -565,6 +563,19 @@
         </div>
       </div>
     <!-- modal ends-->
+
 </body>
 <script type="text/javascript" src="js/calendar.js"></script>
+<script>
+      $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+          format: 'mm/dd/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+        })
+      })
+    </script>
 </html>

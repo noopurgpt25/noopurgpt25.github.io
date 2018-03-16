@@ -7,6 +7,7 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/task.css">
+
   <!-- Bootstrap Date-Picker Plugin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <!-- jQuery library -->
@@ -57,6 +58,9 @@
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#startstudy" >
           Start Study!
         </button>
+        <button type="button" class="btn btn-warning btn-lg" onclick="{location.href='Havefun1.html'}" >
+          Have fun!
+        </button>
       </div>
       <div class="col-md-4 text-center"> 
       </div>
@@ -66,7 +70,9 @@
       <div class="row">
         <div class="col-xs-6 col-md-4">
           <h2>Upcoming Tasks
+
           </h2>
+
           <table class="table table-hover" id="upcoming-task-tb"">
             <tr>
               <thead>
@@ -78,62 +84,57 @@
                   <th>Deadline</th>
                 </tr>
               </thead>
-              <tr class="warning">
-                <td><a href="#taskDetailModal" data-toggle="modal">HCI</a></td>
-                <td>HW</td>
-                <td>Computer Prototype</td>
-                <td>40%</td>
-                <td>3/16/2018</td>
-              </tr>
+
               <tr>
-                <td>AI</a></td>
+                <td>AI</td>
                 <td>HW</td>
                 <td>Lab3</td>
                 <td>20%</td>
                 <td>2/28/2018</td>
               </tr>
               <tr>
-                <td>AI</a></td>
+                <td>AI</td>
                 <td>Reading</td>
                 <td>Chapter3</td>
                 <td>20%</td>
                 <td>2/25/2017</td>
               </tr>
               <tr>
-               <canvas id="barChart1"></canvas>
+                <canvas id="barChart1" style="display: none;"></canvas>
+                <canvas id="barChart2" style="display: none;"></canvas>
+                <canvas id="barChart3"></canvas>
 
-             </tr>
-           </table></div>
-           <div class="col-xs-6 col-md-4"><h2>Late Tasks</h2>
-            <table class="table table-hover" id="late-task-tb">
-              <tr>
-                <thead>
-                  <tr>
-                    <th>Course</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Progress</th>
-                    <th>Late</th>
-                  </tr>
-                </thead>
-                <tr class="danger">
-                  <td>HCI</td>
-                  <td>HW</td>
-                  <td>Paper Prototype</td>
-                  <td>80%</td>
-                  <td>50 minutes</td>
-                </tr>
-                <tr class="danger">
-                  <td>HCI</td>
-                  <td>HW</td>
-                  <td>Reading</td>
-                  <td>60%</td>
-                  <td>2 days</td>
-                </tr>
+              </tr>
+            </table></div>
+            <div class="col-xs-6 col-md-4"><h2>Late Tasks</h2>
+              <table class="table table-hover" id="late-task-tb">
                 <tr>
-
-                 <canvas id="barChart4"></canvas> 
-
+                  <thead>
+                    <tr>
+                      <th>Course</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                      <th>Progress</th>
+                      <th>Late</th>
+                    </tr>
+                  </thead>
+                  <tr class="danger">
+                    <td>HCI</td>
+                    <td>HW</td>
+                    <td>Paper Prototype</td>
+                    <td>80%</td>
+                    <td>50 minutes</td>
+                  </tr>
+                  <tr class="danger">
+                    <td>HCI</td>
+                    <td>HW</td>
+                    <td>Reading</td>
+                    <td>60%</td>
+                    <td>2 days</td>
+                  </tr>
+                  <tr>
+                   <canvas id="barChart4"></canvas> 
+                 </tr>
                </table>
              </div>
 
@@ -149,6 +150,13 @@
                       <th>Out of</th>
                     </tr>
                   </thead>
+                  <tr>
+                    <td><a href="#taskDetailModal" data-toggle="modal">HCI</a></td>
+                    <td>HW</td>
+                    <td>Computer Prototype</td>
+                    <td>Grading</td>
+                    <td>100</td>
+                  </tr>
 
                   <tr>
                     <td>AI</td>
@@ -158,8 +166,7 @@
                     <td>100</td>
                   </tr>
 
-                </table>
-              </div>
+                </table></div>
               </div>
             </div>
 
@@ -195,7 +202,6 @@
                             <option>HW</option>
                             <option>Exam</option>
 
-
                           </select>
                         </div>
                       </div>
@@ -224,85 +230,17 @@
                         <div class="col-sm-10">
                           <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
                         </div>
-                      </div> 
-
+                      </div>
+                      
                     </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="checkTaskValidation(1)">Add Task</button>
+                    <button type="button" class="btn btn-primary" id="add-task-modal-btn" value="go" onclick="checkTaskValidation(3)">Add Task</button>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="modal fade" id="startstudy" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <label class="modal-title">Start Study</label>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form id="add-task-form">
-                      <div class="form-group row">
-                        <label for="input-title" class="col-sm-2 col-form-label">Course</label>
-                        <div class="col-sm-10">
-                          <select class="selectpicker">
-                            <option>HCI</option>
-                            <option>AI</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="input-course" class="col-sm-2 col-form-label">Type</label>
-                        <div class="col-sm-10">
-                          <select class="selectpicker">
-                            <option>HW</option>
-                            <option>Reading</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="input-type" class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10">
-                          <select class="selectpicker">
-                            <option>Computer Prototype</option>
-                            <option>Lab3</option>
-                            <option>Chapter3</option>
-                            <option>Paper Prototype</option>
-                          </select>
-
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <!-- Date input -->
-                        <label class="col-sm-2 col-form-label" for="date">Time</label>
-                        <div class="col-sm-10">
-                          <select class="selectpicker">
-                            <option>2h </option>
-                            <option>1h 30 min</option>
-                            <option>1h </option>
-                            <option>45 min</option>
-                            <option>30 min</option>
-                            <option>15 min</option>
-                          </select>
-
-                        </div>
-                      </div>             
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage1.html'}">Start!</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
 
             <!-- Modal for each task progres-->
             <!-- Modal -->
@@ -327,34 +265,104 @@
                         <label for="input-course" class="col-sm-5 col-form-label">UPDATE HISTORY</label>
                       </div>
                       <div class="form-group row progress-div">
-                        <b>Progress - 40%<br>
-                          Date: 2/28/2018<br></b>
-                          Completed usability testing on component 1 - user profiles.<br><hr>
+                        <b>Progress - 100%<br>
+                          Date: 3/16/2018<br></b>
+                          Copleted all components, usability testing, resolutions and submitted.<br><hr>
                         </div>
                         <div class="form-group row progress-div">
-                          <b>Progress - 30%<br>
-                            Date: 2/18/2018<br></b>
-                            Completed impementing 1 component - user profiles<br><hr>
+                          <b>Progress - 40%<br>
+                            Date: 2/28/2018<br></b>
+                            Completed usability testing on component 1 - user profiles.<br><hr>
                           </div>
                           <div class="form-group row progress-div">
-                            <b>Progress - 10%<br>
-                              Date: 2/10/2018<br></b>
-                              Divides tasks and discussed the different components to be used<br><hr>
-                            </div>       
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <b>Progress - 30%<br>
+                              Date: 2/18/2018<br></b>
+                              Completed impementing 1 component - user profiles<br><hr>
+                            </div>
+                            <div class="form-group row progress-div">
+                              <b>Progress - 10%<br>
+                                Date: 2/10/2018<br></b>
+                                Divides tasks and discussed the different components to be used<br><hr>
+                              </div>       
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <!-- modal ends here-->
+                    <!-- modal ends here-->
 
+                    <div class="modal fade" id="startstudy" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <label class="modal-title">Start Study</label>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="add-task-form">
+                              <div class="form-group row">
+                                <label for="input-title" class="col-sm-2 col-form-label">Course</label>
+                                <div class="col-sm-10">
+                                  <select class="selectpicker">
+                                    <option>HCI</option>
+                                    <option>AI</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="input-course" class="col-sm-2 col-form-label">Type</label>
+                                <div class="col-sm-10">
+                                  <select class="selectpicker">
+                                    <option>HW</option>
+                                    <option>Reading</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="input-type" class="col-sm-2 col-form-label">Description</label>
+                                <div class="col-sm-10">
+                                  <select class="selectpicker">
+                                    <option>Computer Prototype</option>
+                                    <option>Lab3</option>
+                                    <option>Chapter3</option>
+                                    <option>Paper Prototype</option>
+                                  </select>
 
-                  <script type="text/javascript" src="js/StudyOptimization_test.js"></script>
-                  <script>
-                    $(document).ready(function(){
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <!-- Date input -->
+                                <label class="col-sm-2 col-form-label" for="date">Time</label>
+                                <div class="col-sm-10">
+                                  <select class="selectpicker">
+                                    <option>2h </option>
+                                    <option>1h 30 min</option>
+                                    <option>1h </option>
+                                    <option>45 min</option>
+                                    <option>30 min</option>
+                                    <option>15 min</option>
+                                  </select>
+
+                                </div>
+                              </div>             
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage1.html'}">Start!</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <script type="text/javascript" src="js/StudyOptimization_test.js"></script>
+                    <script>
+                      $(document).ready(function(){
         var date_input=$('input[name="date"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
