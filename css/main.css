@@ -1,6 +1,8 @@
 body {
-	margin: 0;
-	background-image: url('../images/study-material-1.jpg');
+	margin: 0px;
+	/*background-image: url('../images/study-material-1.jpg');*/
+	
+	background-image: url('../images/sharon-mccutcheon-532782-unsplash.jpg');
 	background-repeat:no-repeat;
 	display: compact;
 	font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -21,3 +23,11 @@ body {
 	color: #000000;
 }
 
+.main-txt {
+	padding: 5%;
+}
+
+#startbtn {
+	margin: 20px;
+    margin-top: -10%;
+}
