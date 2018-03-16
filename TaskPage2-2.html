@@ -32,9 +32,7 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Task</a></li>
-          <li><a href="#">Class</a></li>
-          <li><a href="#">Notes</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="calendar2.html">Calendar</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -88,10 +86,10 @@
                 <td>HW</td>
                 <td>Computer Prototype</td>
                 <td>40%</td>
-                <td>2/18/2018</td>
+                <td>3/18/2018</td>
               </tr>
               <tr>
-                <td>AI</td>
+                <td><a href="#taskDetailModal" data-toggle="modal">AI</a></td>
                 <td>HW</td>
                 <td>Lab3</td>
                 <td>40%</td>
@@ -152,7 +150,7 @@
                     <th>Type</th>
                     <th>Description</th>
                     <th>Score</th>
-
+                    <th>Out of</th>
                   </tr>
                 </thead>
 
@@ -162,7 +160,7 @@
                   <td>HW</td>
                   <td>Lab2</td>
                   <td>95</td>
-
+                  <td>100</td>
                 </tr>
 
               </table></div>
@@ -174,7 +172,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Add a Task</h5>
+                  <label class="modal-title">Add a Task</label>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -199,7 +197,7 @@
                         <select class="selectpicker">
                           <option>Reading</option>
                           <option>HW</option>
-                          <option>Lab</option>
+                          <option>Exam</option>
 
                         </select>
                       </div>
@@ -229,7 +227,8 @@
                       <div class="col-sm-10">
                         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
                       </div>
-                    </div>             
+                    </div>
+                                 
                   </form>
                 </div>
                 <div class="modal-footer">
@@ -240,11 +239,60 @@
             </div>
           </div>
 
+          <!-- Modal for each task progres-->
+          <!-- Modal -->
+          <div class="modal fade" id="taskDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <label class="modal-title">Progress Report</label>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="add-task-form">
+                    <div class="form-group row">
+                      <label for="input-title" class="col-sm-5 col-form-label">TITLE </label>
+                      <div class="col-sm-10">
+                        AI - HW - Lab3
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="input-course" class="col-sm-5 col-form-label">UPDATE HISTORY</label>
+                    </div>
+                    <div class="form-group row progress-div">
+                      <b>Progress - 40%<br>
+                      Date: 2/28/2018<br></b>
+                      Completed the retract knowledge base.<br><hr>
+                    </div>
+                    <div class="form-group row progress-div">
+                      <b>Progress - 20%<br>
+                      Date: 2/18/2018<br></b>
+                      Completed reading file and understand the provided code<br><hr>
+                    </div>
+                    <div class="form-group row progress-div">
+                      <b>Progress - 10%<br>
+                      Date: 2/10/2018<br></b>
+                      Completed the reading of Lab3 background knowledge<br><hr>
+                    </div>       
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal ends here-->
+
+
+
           <div class="modal fade" id="startstudy" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Add a Task</h5>
+                  <label class="modal-title">Start Study</label>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -301,12 +349,12 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage1.html'}">Start!</button>
+                  <button type="button" class="btn btn-primary" id="add-task-modal-btn"  onclick="{location.href='Studypage2.html'}">Start!</button>
                 </div>
               </div>
             </div>
           </div>
-          <script type="text/javascript" src="js/StudyOptimization.js"></script>
+          <script type="text/javascript" src="js/StudyOptimization_test.js"></script>
            <script>
       $(document).ready(function(){
         var date_input=$('input[name="date"]'); //our date input has the name "date"
@@ -322,3 +370,4 @@
         </body>
 
         </html>
+
